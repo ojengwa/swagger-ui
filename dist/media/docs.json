@@ -32,7 +32,7 @@
         },
         {
             "name": "requires auth",
-            "description": "Authorization required. Any request to this endpoint must have the `api_token` and `api_secret` defined."
+            "description": "Authorization required."
         },
         {
             "name": "singleton",
