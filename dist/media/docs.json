@@ -54,7 +54,12 @@
     ],
     "definitions": {
         "base": {
-            "type": "string"
+            "type": "string",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
         },
         "auth": {
             "type": "object",
