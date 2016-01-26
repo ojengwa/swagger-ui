@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "LUC Payments Services API",
-        "description": "This API definitions provides a unified interface to query data related to the LUC Payment platform. ApiKeys will be provided on request after due deligence.",
+        "description": "This API definitions provides a unified interface for querying data related to the LUC Payment platform. API tokens and Secrets will be provided on request after due diligence.",
         "version": "0.0.1"
     },
     "basePath": "/api/v1",
@@ -112,7 +112,7 @@
                     "singleton",
                     "requires auth"
                 ],
-                "description": "Return the records for a property with the given property identification number (`pid`). You can also specify which fields should be returned or filter out br specifying an extra parameter in the request body.",
+                "description": "Returns the record for a property with the given property identification number (`pid`). You can also specify which fields should be returned or filtered out by specifying extra parameters in the request body.",
                 "summary": "Return a property with the given `pid` (`Property IDN`).",
                 "parameters": [
                     {
@@ -225,8 +225,8 @@
                     "singleton",
                     "requires auth"
                 ],
-                "description": "Submit payment records for a property with the given property identification number (`pid`). A successful repose will also include the saved payload in the reponse body.",
-                "summary": "Post payment data for a property.",
+                "description": "Submit payment records for a property with the given property identification number (`pid`). A successful reponse will also include the saved payload in the reponse body.",
+                "summary": "Submit payment data for a property.",
                 "parameters": [
                     {
                         "name": "api_token",
@@ -289,7 +289,7 @@
                         "in": "formData",
                         "description": "Physical address of the property for which is payment is being made..",
                         "required": false,
-                        "type": "integer"
+                        "type": "string"
                     }
                 ],
                 "responses": {
