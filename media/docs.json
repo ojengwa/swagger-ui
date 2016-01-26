@@ -61,6 +61,14 @@
                 }
             }
         },
+        "responseValue": {
+            "type": "string",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "auth": {
             "type": "object",
             "properties": {
