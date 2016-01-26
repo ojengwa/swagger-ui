@@ -70,16 +70,67 @@
             }
         },
         "properties": {
-            "format": "string",
-            "type": "string"
+            "type": "string",
+            "properties": {
+                "payer_id": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "property_idn": {
+                    "type": "string",
+                    "format": "string"
+                }
+            }
         },
         "property": {
-            "format": "string",
-            "type": "string"
+            "type": "string",
+            "properties": {
+                "payer_id": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "property_idn": {
+                    "type": "string",
+                    "format": "string"
+                }
+            }
         },
         "payments": {
-            "format": "string",
-            "type": "string"
+            "type": "string",
+            "properties": {
+                "entryid": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "amount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "payment_date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "payerid": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "payername": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "assessref": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "address": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "property_owners": {
+                    "type": "string",
+                    "format": "string"
+                }
+            }
         }
     },
     "paths": {
