@@ -114,6 +114,12 @@ function _copy() {
     .pipe(gulp.dest('./dist/lang'))
     .on('error', log);
 
+  // copy JSON docs
+  gulp
+    .src(['./media/*.json'])
+    .pipe(gulp.dest('./dist/media'))
+    .on('error', log);
+
   // copy all files inside html folder
   gulp
     .src(['./src/main/html/**/*'])

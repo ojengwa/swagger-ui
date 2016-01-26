@@ -133,7 +133,7 @@ window.SwaggerUi = Backbone.Router.extend({
   // This is bound to success handler for SwaggerApi
   //  so it gets called when SwaggerApi completes loading
   render: function(){
-    this.showMessage('Finished Loading Resource Information. Rendering Swagger UI...');
+    this.showMessage('Finished Loading Resource Information. Rendering the UI...');
     this.mainView = new SwaggerUi.Views.MainView({
       model: this.api,
       el: $('#' + this.dom_id),
