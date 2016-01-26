@@ -54,12 +54,20 @@
     ],
     "definitions": {
         "base": {
-            "format": "string",
             "type": "string"
         },
         "auth": {
-            "format": "string",
-            "type": "string"
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "format": "password"
+                }
+            }
         },
         "properties": {
             "format": "string",
