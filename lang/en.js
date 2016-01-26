@@ -44,7 +44,7 @@ window.SwaggerTranslator.learn({
     "Parameter content type:":"Parameter content type:",
     "fetching resource":"fetching resource",
     "fetching resource list":"fetching resource list",
-    "Explore":"Refresh",
+    "Refresh":"Refresh",
     "Show Swagger Petstore Example Apis":"Show Example Apis",
     "Can't read from server.  It may not have the appropriate access-control-origin settings.":"Can't read from server.  It may not have the appropriate access-control-origin settings.",
     "Please specify the protocol for":"Please specify the protocol for",

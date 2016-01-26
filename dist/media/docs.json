@@ -5,7 +5,6 @@
         "description": "This API definitions provides a unified interface to query data related to the LUC Payment platform. ApiKeys will be provided on request after due deligence.",
         "version": "0.0.1"
     },
-    "host": "0.0.0.0:8000",
     "basePath": "/api/v1",
     "schemes": [
         "https"
