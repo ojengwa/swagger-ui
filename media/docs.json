@@ -3,27 +3,71 @@
     "info": {
         "title": "LUC Payments Services API",
         "description": "This API definitions provides a unified interface to query data related to the LUC Payment platform. ApiKeys will be provided on request after due deligence.",
-        "version": "0.0.1",
-        "contact": {
-            "email": "team@initsng.com",
-            "name": "Inits Nigeria.",
-            "url": "http://www.initsng.com"
-        }
+        "version": "0.0.1"
     },
     "host": "0.0.0.0:8000",
     "basePath": "/api/v1",
     "schemes": [
-        "https",
-        "http"
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json",
+        "application/jsonp",
+        "application/yaml"
+    ],
+    "tags": [
+        {
+            "name": "No auth",
+            "description": "Operations that do not require any authentication."
+        },
+        {
+            "name": "collections",
+            "description": "Returns multiple records."
+        },
+        {
+            "name": "properties",
+            "description": "Returns record(s) relating to a particular property or set of properties."
+        },
+        {
+            "name": "requires auth",
+            "description": "Authorization required. Any request to this endpoint must have the `api_token` and `api_secret` defined."
+        },
+        {
+            "name": "singleton",
+            "description": "Return a record instance for the given type of resource."
+        },
+        {
+            "name": "auth",
+            "description": "This endpoint is used to authenticate a client."
+        },
+        {
+            "name": "payments",
+            "description": "Returns record(s) relating to a particular payment or set of payments."
+        },
+        {
+            "name": "tokens",
+            "description": "This endpoint will return valid authentication `tokens` and `secret` to the client."
+        }
     ],
     "definitions": {
         "base": {
-            "format": "string",
             "type": "string"
         },
         "auth": {
-            "format": "string",
-            "type": "string"
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "format": "password"
+                }
+            }
         },
         "properties": {
             "format": "string",
@@ -38,14 +82,6 @@
             "type": "string"
         }
     },
-    "consumes": [
-        "application/json"
-    ],
-    "produces": [
-        "application/json",
-        "application/jsonp",
-        "application/yaml"
-    ],
     "paths": {
         "/": {
             "get": {
@@ -385,7 +421,6 @@
                 "tags": [
                     "payments",
                     "singleton",
-                    "POST",
                     "requires auth"
                 ],
                 "description": "Submit payment records for a property with the given property identification number (`pid`). A successful repose will also include the saved payload in the reponse body.",
@@ -408,28 +443,28 @@
                     {
                         "name": "entryid",
                         "in": "formData",
-                        "description": "Id for the specified data.",
+                        "description": "Your unique transaction reference code for this payment.",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "amount",
                         "in": "formData",
-                        "description": "The amount paid",
+                        "description": "The amount paid.",
                         "required": true,
                         "type": "number"
                     },
                     {
                         "name": "payment_date",
                         "in": "formData",
-                        "description": "The date the payment was registered.",
+                        "description": "The date and time the payment was made. Format: `YYYY-MM-DD HH:MM:SS` e.g `2016-01-24 15:03:01`.",
                         "required": true,
-                        "type": "number"
+                        "type": "string"
                     },
                     {
                         "name": "payerid",
                         "in": "formData",
-                        "description": "The ID of the account that ade the payment.",
+                        "description": "The PayerID of the account that made the payment - available in the bill information.",
                         "required": true,
                         "type": "string"
                     },
@@ -443,14 +478,14 @@
                     {
                         "name": "assessref",
                         "in": "formData",
-                        "description": "Assess Refrence for this account. Same as the Property IDN.",
+                        "description": "Assess Reference for this account. Same as the Property IDN",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "address",
                         "in": "formData",
-                        "description": "Physical address of the account that made the payment.",
+                        "description": "Physical address of the property for which is payment is being made..",
                         "required": false,
                         "type": "integer"
                     }
