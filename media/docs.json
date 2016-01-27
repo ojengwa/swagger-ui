@@ -172,12 +172,13 @@
                             "house_no": "5",
                             "street_name": "OLATUJA STREET",
                             "district_name": "ADALOKO",
-                            "local_government_id": 17,
+                            "local_government_id": "Ojo",
                             "postal_code": "OJO4279-58",
                             "payer_id": "N-3173444",
                             "property_idn": "30155772",
                             "resource_uri": "/api/v1/properties/1",
                             "acct_amount_due": 100298,
+                            "short_address": "5 OLATUJA STREET, ADALOKO, OJO4279-58, OJO",
                             "property_owners": [
                                 {
                                     "owner_name": "MR. AINA IYAPO",
