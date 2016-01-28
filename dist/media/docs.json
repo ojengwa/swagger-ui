@@ -104,7 +104,7 @@
         }
     },
     "paths": {
-        "/properties/{notice_id}": {
+        "/properties": {
             "post": {
                 "operationId": "getProperty",
                 "tags": [
@@ -112,12 +112,12 @@
                     "singleton",
                     "requires auth"
                 ],
-                "description": "Returns the record for a property with the given property identification number (`notice_id`). You can also specify which fields should be returned or filtered out by specifying extra parameters in the request body.",
+                "description": "Returns the record for a property for which the notice with the given notice ID (`notice_id`) was issued. You can also specify which fields should be returned or filtered out by specifying extra parameters in the request body.",
                 "summary": "Return a property with the given `notice_id`.",
                 "parameters": [
                     {
                         "name": "notice_id",
-                        "in": "path",
+                        "in": "formData",
                         "description": "The ID of the payment notice recieved by the property owner.",
                         "required": true,
                         "type": "string"
