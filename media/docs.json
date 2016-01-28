@@ -104,7 +104,7 @@
         }
     },
     "paths": {
-        "/properties/{property_idn}": {
+        "/properties/{notice_id}": {
             "post": {
                 "operationId": "getProperty",
                 "tags": [
@@ -112,13 +112,13 @@
                     "singleton",
                     "requires auth"
                 ],
-                "description": "Returns the record for a property with the given property identification number (`property_idn`). You can also specify which fields should be returned or filtered out by specifying extra parameters in the request body.",
-                "summary": "Return a property with the given `property_idn`.",
+                "description": "Returns the record for a property with the given property identification number (`notice_id`). You can also specify which fields should be returned or filtered out by specifying extra parameters in the request body.",
+                "summary": "Return a property with the given `notice_id`.",
                 "parameters": [
                     {
-                        "name": "property_idn",
+                        "name": "notice_id",
                         "in": "path",
-                        "description": "The property identification number.",
+                        "description": "The ID of the payment notice recieved by the property owner.",
                         "required": true,
                         "type": "string"
                     },
@@ -219,14 +219,21 @@
                         "type": "string"
                     },
                     {
-                        "name": "entryid",
+                        "name": "notice_id",
+                        "in": "formData",
+                        "description": "The ID of the payment notice recieved by the property owner.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reference_id",
                         "in": "formData",
                         "description": "Your unique transaction reference code for this payment.",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "amount",
+                        "name": "amount_paid",
                         "in": "formData",
                         "description": "The amount paid.",
                         "required": true,
@@ -240,44 +247,16 @@
                         "type": "string"
                     },
                     {
-                        "name": "payerid",
-                        "in": "formData",
-                        "description": "The PayerID of the account that made the payment - available in the bill information.",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "payername",
-                        "in": "formData",
-                        "description": "Name of the account that made the payment.",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "assessref",
-                        "in": "formData",
-                        "description": "Assess Reference for this account. Same as the Property IDN",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "phone",
+                        "name": "mobile_number",
                         "in": "formData",
                         "description": "Phone number of the account that made the payment - in ternational format (eg: `2341234567890`.",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "email",
+                        "name": "email_address",
                         "in": "formData",
                         "description": "The email address of the account that made the payment.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "address",
-                        "in": "formData",
-                        "description": "Physical address of the property for which is payment is being made.",
                         "required": false,
                         "type": "string"
                     }
@@ -292,13 +271,13 @@
                             }
                         },
                         "examples": {
-                                "entryid":"'360356'",
-                                "amount":" '2492024.06'",
+                                "reference_id":" '360356'",
+                                "amount_paid":" '2492024.06'",
                                 "payment_date":" '2001-09-20 00:00:00'",
-                                "payerid":" 'C-1478'",
-                                "payername":" 'ZENITH BANK PLC'",
-                                "assessref":" ''",
-                                "address":" ''",
+                                "property_idn":" 'C-1478'",
+                                "notice_id":" '8941374'",
+                                "property_address":" ''",
+                                "mobile_number": "2341234567890",
                                 "property_owners": [
                                     {
                                         "owner_name": "ZENITH BANK PLC",
