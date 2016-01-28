@@ -661,6 +661,10 @@ SwaggerUi.partials.signature = (function () {
       return ' ' + attr.name + '="' + attr.value + '"';
     }).join('');
 
+    if (!name) {
+      return getErrorMessage('Node name is not provided');
+    }
+
     str = [
       '<', name,
       attributes,
@@ -827,8 +831,9 @@ SwaggerUi.partials.signature = (function () {
     return '<!-- Infinite loop $ref:' + name + ' -->';
   }
 
-  function getErrorMessage () {
-    return '<!-- invalid XML -->';
+  function getErrorMessage (details) {
+    details = details ? ': ' + details : '';
+    return '<!-- invalid XML' + details + ' -->';
   }
 
   function createSchemaXML (name, definition, models, config) {
@@ -836,7 +841,7 @@ SwaggerUi.partials.signature = (function () {
     var output, index;
     config = config || {};
     config.modelsToIgnore = config.modelsToIgnore || [];
-    var descriptor = _.isString($ref) ? getDescriptorByRef($ref, models, config)
+    var descriptor = _.isString($ref) ? getDescriptorByRef($ref, name, models, config)
         : getDescriptor(name, definition, models, config);
 
     if (!descriptor) {
@@ -871,20 +876,21 @@ SwaggerUi.partials.signature = (function () {
 
     this.config = config || {};
     this.config.modelsToIgnore = this.config.modelsToIgnore || [];
-    this.name = name;
+    this.name = getName(name, definition.xml);
     this.definition = definition;
     this.models = models;
     this.type = type;
   }
 
-  function getDescriptorByRef($ref, models, config) {
+  function getDescriptorByRef($ref, name, models, config) {
     var modelType = simpleRef($ref);
     var model = models[modelType] || {};
-    var name = model.name || modelType;
     var type = model.type || 'object';
+    name = name || model.name;
 
     if (config.modelsToIgnore.indexOf($ref) > -1) {
       type = 'loop';
+      name = modelType;
     } else {
       config.modelsToIgnore.push($ref);
     }
@@ -898,13 +904,10 @@ SwaggerUi.partials.signature = (function () {
 
   function getDescriptor (name, definition, models, config){
     var type = definition.type || 'object';
-    var xml = definition.xml || {};
 
     if (!definition) {
       return null;
     }
-
-    name = getName(name, xml);
 
     return new Descriptor(name, type, definition, models, config);
   }
