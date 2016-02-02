@@ -8,7 +8,8 @@
     "basePath": "/api/v1",
     "host": "162.243.53.17",
     "schemes": [
-        "https"
+        "https",
+        "http"
     ],
     "consumes": [
         "application/json",
@@ -249,6 +250,15 @@
                             "payment_date": " '2016-01-28 15:23:00'",
                             "property_idn": " '30155772'",
                             "notice_id": " '144455567'",
+                            "address": {
+                                "flat_no": "",
+                                "house_name": "",
+                                "house_no": "95",
+                                "street_name": "OLATUJA STREET",
+                                "district_name": "ADALOKO",
+                                "local_government_id": "Ojo",
+                                "postal_code": "OJO4279-58"
+                            },
                             "mobile_number": "2348099885566",
                             "property_owners": [{
                                 "owner_name": "MR. AINA IYAPO",
