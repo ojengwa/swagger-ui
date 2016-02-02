@@ -6,6 +6,7 @@
         "version": "0.0.2"
     },
     "basePath": "/api/v1",
+    "host": "162.243.53.17",
     "schemes": [
         "https"
     ],
