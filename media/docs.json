@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "LUC Payments Services API",
-        "description": "This API definitions provides a unified interface for customer validation and payment notification with respect to the payment of the Land Use Charge. API tokens and Secrets will be provided on request after due diligence.\n\n\n\n**Suggested/Recommended Implementation**\n\n*Step 1*: Retrieve the Notice information using the `notice_id` displayed on the bill\n\n*Step 2*: Display the `amount_remaining` on the bill. Please note that this amount may vary based on if penalties are in effect for late payments, if concessions have been given or if partial payments have been made. Do not cache any values here\n\n*Step 3*: Execute the payment process on your channel\n\n*Step 4*: Send the details of the payment to the payments endpoint\n\n*Step 5*: Process the response to confirm that the details sent were received successfully\n\n*Step 6*: Display the new outstanding  balance as returned in the response\n\n\n\n----",
+        "description": "This API definitions provides a unified interface for customer validation and payment notification with respect to the payment of the Land Use Charge. API tokens and Secrets will be provided on request after due diligence.\n\n\n\n**Suggested/Recommended Implementation**\n\n*Step 1*: Retrieve the Notice information using the `notice_id` displayed on the bill\n\n*Step 2*: Display the `amount_remaining` on the bill. Please note that this amount may vary based on if penalties are in effect for late payments, if concessions have been given or if partial payments have been made. Do not cache any values here\n\n*Step 3*: Execute the payment process on your channel\n\n*Step 4*: Send the details of the payment to the payments endpoint\n\n*Step 5*: Process the response to confirm that the details sent were received successfully\n\n*Step 6*: Display the new outstanding  balance as returned in the response\n\n\nAPI Basepath: http://localhost:8000/api/v1\n\nALL REQUEST TO THE API ENDPOINT MUST BE SENT WITH THE HTTP `POST` METHOD\n\n\n\n\n\n----",
         "version": "0.0.2"
     },
     "basePath": "/api/v1",
@@ -12,7 +12,8 @@
     ],
     "consumes": [
         "application/json",
-        "application/x-www-form-urlencoded"
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
     ],
     "produces": [
         "application/json",
@@ -124,7 +125,7 @@
                 }, {
                     "name": "includes",
                     "in": "formData",
-                    "description": "A comma seperated list of attributes to include in the request. Default is `'all,'`",
+                    "description": "A comma seperated list of attributes to include in the reponse. Default is `'all,'`",
                     "required": false,
                     "type": "string"
                 }, {
@@ -143,20 +144,13 @@
                                 "$ref": "#/definitions/property"
                             }
                         },
-                        "headers": {
-                            "Authorization: ApiKey": {
-                                "type": "string",
-                                "description": "A concatenated string containing the API Token and Secret"
-                            }
-                        },
                         "examples": {
                             "flat_no": "",
                             "house_name": "",
                             "house_no": "95",
                             "street_name": "OLATUJA STREET",
                             "district_name": "ADALOKO",
-                            "local_government_id": "Ojo",
-                            "postal_code": "OJO4279-58",
+                            "local_government": "Ojo",
                             "property_idn": "30155772",
                             "notice_id": "144455567",
                             "acct_amount_due": 100298.22,
@@ -255,20 +249,13 @@
                                 "house_no": "95",
                                 "street_name": "OLATUJA STREET",
                                 "district_name": "ADALOKO",
-                                "local_government_id": "Ojo",
-                                "postal_code": "OJO4279-58"
+                                "local_government_id": "Ojo"
                             },
                             "mobile_number": "2348099885566",
                             "property_owners": [{
                                 "owner_name": "MR. AINA IYAPO",
                                 "owner_type": "Individual"
                             }]
-                        },
-                        "headers": {
-                            "Authorization: ApiKey": {
-                                "type": "string",
-                                "description": "A concatenated string containing the API Token and Secret"
-                            }
                         }
                     },
                     "400": {
