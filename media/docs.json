@@ -242,6 +242,7 @@
                             "amount_remaining": 0,
                             "payment_date": " '2016-01-28 15:23:00'",
                             "notice_id": " '144455567'",
+                            "mobile_number": "2348099885566",
                             "address": {
                                 "property_idn": " '30155772'",
                                 "flat_no": "",
@@ -251,7 +252,6 @@
                                 "district_name": "ADALOKO",
                                 "local_government_id": "Ojo"
                             },
-                            "mobile_number": "2348099885566",
                             "property_owners": [{
                                 "owner_name": "MR. AINA IYAPO",
                                 "owner_type": "Individual"
