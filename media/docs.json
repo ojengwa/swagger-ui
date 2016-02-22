@@ -216,7 +216,13 @@
                 }, {
                     "name": "mobile_number",
                     "in": "formData",
-                    "description": "Phone number of the account that made the payment - international format (eg: `2341234567890`.",
+                    "description": "Phone number of the account that made the payment - international format (eg: `2341234567890`).",
+                    "required": true,
+                    "type": "string"
+                },{
+                    "name": "hash",
+                    "in": "formData",
+                    "description": "A hexdigest of the md5 containing the concatinated string (amount_paid + payment_date + notice_id + salt) IN THAT ORDER. Hash salts are different from the API Credentials and will be provided seperately.",
                     "required": true,
                     "type": "string"
                 }, {
