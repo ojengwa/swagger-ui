@@ -153,6 +153,7 @@
                             "local_government": "Ojo",
                             "property_idn": "30155772",
                             "notice_id": "144455567",
+                            "payer_id": "C-3242524",
                             "acct_amount_due": 100298.22,
                             "amount_remaining": 100298.22,
                             "property_owners": [{
@@ -242,6 +243,7 @@
                             }
                         },
                         "examples": {
+                            "message": "Payment data have already been sa",
                             "reference_id": "360356",
                             "amount_paid": "100298.22",
                             "acct_amount_due": 100298.22,
