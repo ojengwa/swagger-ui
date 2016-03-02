@@ -243,7 +243,7 @@
                             }
                         },
                         "examples": {
-                            "message": "Payment data have already been sa",
+                            "message": "Payment data have already been saved.",
                             "reference_id": "360356",
                             "amount_paid": "100298.22",
                             "acct_amount_due": 100298.22,
